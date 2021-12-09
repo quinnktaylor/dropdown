@@ -1,0 +1,30 @@
+const dropdown = document.querySelector('.dropdown');
+const dropdownSelected = document.querySelector('.dropdown__item.selected');
+const dropdownOptions = document.querySelector('.dropdown__options');
+const dropdownItems = document.querySelectorAll('.dropdown__item');
+const dropdownContent = document.querySelector('.dropdown__item-content');
+const dropdownCurrentValue = document.querySelector('.dropdown__value');
+
+// Remove styling that is only present before user clicks on the dropdown element.
+dropdownSelected.addEventListener('click', () => {
+    dropdownSelected.classList.remove('initial');
+});
+
+//Get value of clicked element in dropdown and set it as current value in dropdown
+dropdownItems.forEach((item) => {
+    item.addEventListener('click', (event) => {
+        if(!item.classList.contains('selected')){
+            const dropdownValue = event.target.innerHTML;
+            dropdownContent.innerHTML = dropdownValue;
+            dropdownCurrentValue.innerHTML = `The current dropdown value is: "${dropdownValue}" :)`;
+            dropdownOptions.classList.remove('active');
+            dropdownSelected.classList.remove('active');
+        }
+    });
+});
+
+// Allows user to close the dropdown without making a new selection
+dropdownSelected.addEventListener('click', () => {
+    dropdownOptions.classList.toggle('active');
+    dropdownSelected.classList.toggle('active');
+});

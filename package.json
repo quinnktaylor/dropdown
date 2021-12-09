@@ -1,0 +1,16 @@
+{
+  "name": "package.json",
+  "version": "1.0.0",
+  "description": "Package File For Dropdown",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass -w scss/ -o css/ --recursive"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "livereload": "^0.9.3",
+    "node-sass": "^7.0.0",
+    "sass-autoprefixer": "^1.0.1"
+  }
+}
